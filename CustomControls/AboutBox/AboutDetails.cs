@@ -20,7 +20,7 @@ namespace CustomControls.AboutBox
         private string _entryAssemblyName;
         private string _callingAssemblyName;
         private string _executingAssemblyName;
-        private NameValueCollection _entryAssemblyAttributesCollection;
+        //private NameValueCollection _entryAssemblyAttributesCollection;
         #endregion Members
 
         #region Properties
@@ -86,8 +86,11 @@ namespace CustomControls.AboutBox
         private void _populateApplicationInformation()
         {
             AppDomain domain = AppDomain.CurrentDomain;
-            //_populateApplicationInformationItem(applicationListView, 
             _populate(applicationListView, "Application Name", domain.SetupInformation.ApplicationName);
+            _populate(applicationListView, "Application Environment", "Development");
+            _populate(applicationListView, "SQL Server", "SQL Server");
+            _populate(applicationListView, "SQL Login", "SQL Login");
+            _populate(applicationListView, " ", " ");
             _populate(applicationListView, "Application Base", domain.SetupInformation.ApplicationBase);
             _populate(applicationListView, "Cache Path", domain.SetupInformation.CachePath);
             _populate(applicationListView, "Configuration File", domain.SetupInformation.ConfigurationFile);
@@ -96,10 +99,6 @@ namespace CustomControls.AboutBox
             _populate(applicationListView, "License File", domain.SetupInformation.LicenseFile);
             _populate(applicationListView, "private Bin Path", domain.SetupInformation.PrivateBinPath);
             _populate(applicationListView, "Shadow Copy Directories", domain.SetupInformation.ShadowCopyDirectories);
-            _populate(applicationListView, " ", " ");
-            _populate(applicationListView, "Application Environment", "Development");
-            _populate(applicationListView, "SQL Server", "SQL Server");
-            _populate(applicationListView, "SQL Login", "SQL Login");
             _populate(applicationListView, " ", " ");
             _populate(applicationListView, "Entry Assembly", _entryAssemblyName);
             _populate(applicationListView, "Executing Assembly", _executingAssemblyName);
@@ -288,7 +287,7 @@ namespace CustomControls.AboutBox
 
             //BUILD DATE
             DateTime? assemblyBuildDate = _getAssemblyBuildDate(assembly, false);
-            collection.Add("BuildDate", (assemblyBuildDate != null) ? assemblyBuildDate.Value.ToString("yyyy-MM-dd hh:mm tt") : "(unknown)");
+            collection.Add("BuildDate", (assemblyBuildDate != null) ? assemblyBuildDate.Value.ToString("yyyy-MM-dd  hh:mm tt") : "(unknown)");
 
             //LOCATION
             try

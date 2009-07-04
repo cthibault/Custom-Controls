@@ -30,20 +30,20 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.applicationTabPage = new System.Windows.Forms.TabPage();
-            this.assembliesTabPage = new System.Windows.Forms.TabPage();
-            this.assemblyDetailsTabPage = new System.Windows.Forms.TabPage();
             this.applicationListView = new System.Windows.Forms.ListView();
             this.applicationKeyCol = new System.Windows.Forms.ColumnHeader();
             this.applicationValueCol = new System.Windows.Forms.ColumnHeader();
+            this.assembliesTabPage = new System.Windows.Forms.TabPage();
             this.assembliesListView = new System.Windows.Forms.ListView();
             this.nameCol = new System.Windows.Forms.ColumnHeader();
             this.versionCol = new System.Windows.Forms.ColumnHeader();
             this.builtCol = new System.Windows.Forms.ColumnHeader();
             this.codebaseCol = new System.Windows.Forms.ColumnHeader();
-            this.assemblyNamesComboBox = new System.Windows.Forms.ComboBox();
+            this.assemblyDetailsTabPage = new System.Windows.Forms.TabPage();
             this.assemblyDetailsListView = new System.Windows.Forms.ListView();
             this.assemblyKeyCol = new System.Windows.Forms.ColumnHeader();
             this.assemblyValueCol = new System.Windows.Forms.ColumnHeader();
+            this.assemblyNamesComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.applicationTabPage.SuspendLayout();
             this.assembliesTabPage.SuspendLayout();
@@ -74,6 +74,31 @@
             this.applicationTabPage.Text = "Application";
             this.applicationTabPage.UseVisualStyleBackColor = true;
             // 
+            // applicationListView
+            // 
+            this.applicationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.applicationKeyCol,
+            this.applicationValueCol});
+            this.applicationListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.applicationListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.applicationListView.Location = new System.Drawing.Point(3, 3);
+            this.applicationListView.MultiSelect = false;
+            this.applicationListView.Name = "applicationListView";
+            this.applicationListView.Size = new System.Drawing.Size(337, 153);
+            this.applicationListView.TabIndex = 0;
+            this.applicationListView.UseCompatibleStateImageBehavior = false;
+            this.applicationListView.View = System.Windows.Forms.View.Details;
+            // 
+            // applicationKeyCol
+            // 
+            this.applicationKeyCol.Text = "Application Key";
+            this.applicationKeyCol.Width = 135;
+            // 
+            // applicationValueCol
+            // 
+            this.applicationValueCol.Text = "Value";
+            this.applicationValueCol.Width = 211;
+            // 
             // assembliesTabPage
             // 
             this.assembliesTabPage.Controls.Add(this.assembliesListView);
@@ -85,40 +110,6 @@
             this.assembliesTabPage.Text = "Assemblies";
             this.assembliesTabPage.UseVisualStyleBackColor = true;
             // 
-            // assemblyDetailsTabPage
-            // 
-            this.assemblyDetailsTabPage.Controls.Add(this.assemblyDetailsListView);
-            this.assemblyDetailsTabPage.Controls.Add(this.assemblyNamesComboBox);
-            this.assemblyDetailsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.assemblyDetailsTabPage.Name = "assemblyDetailsTabPage";
-            this.assemblyDetailsTabPage.Size = new System.Drawing.Size(343, 159);
-            this.assemblyDetailsTabPage.TabIndex = 2;
-            this.assemblyDetailsTabPage.Text = "Assembly Details";
-            this.assemblyDetailsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // applicationListView
-            // 
-            this.applicationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.applicationKeyCol,
-            this.applicationValueCol});
-            this.applicationListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.applicationListView.Location = new System.Drawing.Point(3, 3);
-            this.applicationListView.Name = "applicationListView";
-            this.applicationListView.Size = new System.Drawing.Size(337, 153);
-            this.applicationListView.TabIndex = 0;
-            this.applicationListView.UseCompatibleStateImageBehavior = false;
-            this.applicationListView.View = System.Windows.Forms.View.Details;
-            // 
-            // applicationKeyCol
-            // 
-            this.applicationKeyCol.Text = "Application Key";
-            this.applicationKeyCol.Width = 120;
-            // 
-            // applicationValueCol
-            // 
-            this.applicationValueCol.Text = "Value";
-            this.applicationValueCol.Width = 211;
-            // 
             // assembliesListView
             // 
             this.assembliesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -127,10 +118,12 @@
             this.builtCol,
             this.codebaseCol});
             this.assembliesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.assembliesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.assembliesListView.Location = new System.Drawing.Point(3, 3);
             this.assembliesListView.MultiSelect = false;
             this.assembliesListView.Name = "assembliesListView";
             this.assembliesListView.Size = new System.Drawing.Size(337, 153);
+            this.assembliesListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.assembliesListView.TabIndex = 0;
             this.assembliesListView.UseCompatibleStateImageBehavior = false;
             this.assembliesListView.View = System.Windows.Forms.View.Details;
@@ -148,22 +141,23 @@
             // builtCol
             // 
             this.builtCol.Text = "Built";
+            this.builtCol.Width = 125;
             // 
             // codebaseCol
             // 
             this.codebaseCol.Text = "Code Base";
             this.codebaseCol.Width = 200;
             // 
-            // assemblyNamesComboBox
+            // assemblyDetailsTabPage
             // 
-            this.assemblyNamesComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.assemblyNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.assemblyNamesComboBox.FormattingEnabled = true;
-            this.assemblyNamesComboBox.Location = new System.Drawing.Point(0, 0);
-            this.assemblyNamesComboBox.Name = "assemblyNamesComboBox";
-            this.assemblyNamesComboBox.Size = new System.Drawing.Size(343, 21);
-            this.assemblyNamesComboBox.TabIndex = 0;
-            this.assemblyNamesComboBox.SelectedIndexChanged += new System.EventHandler(this.assemblyNamesComboBox_SelectedIndexChanged);
+            this.assemblyDetailsTabPage.Controls.Add(this.assemblyDetailsListView);
+            this.assemblyDetailsTabPage.Controls.Add(this.assemblyNamesComboBox);
+            this.assemblyDetailsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.assemblyDetailsTabPage.Name = "assemblyDetailsTabPage";
+            this.assemblyDetailsTabPage.Size = new System.Drawing.Size(343, 159);
+            this.assemblyDetailsTabPage.TabIndex = 2;
+            this.assemblyDetailsTabPage.Text = "Assembly Details";
+            this.assemblyDetailsTabPage.UseVisualStyleBackColor = true;
             // 
             // assemblyDetailsListView
             // 
@@ -171,9 +165,12 @@
             this.assemblyKeyCol,
             this.assemblyValueCol});
             this.assemblyDetailsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.assemblyDetailsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.assemblyDetailsListView.Location = new System.Drawing.Point(0, 21);
+            this.assemblyDetailsListView.MultiSelect = false;
             this.assemblyDetailsListView.Name = "assemblyDetailsListView";
             this.assemblyDetailsListView.Size = new System.Drawing.Size(343, 138);
+            this.assemblyDetailsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.assemblyDetailsListView.TabIndex = 1;
             this.assemblyDetailsListView.UseCompatibleStateImageBehavior = false;
             this.assemblyDetailsListView.View = System.Windows.Forms.View.Details;
@@ -187,6 +184,17 @@
             // 
             this.assemblyValueCol.Text = "Value";
             this.assemblyValueCol.Width = 200;
+            // 
+            // assemblyNamesComboBox
+            // 
+            this.assemblyNamesComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.assemblyNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.assemblyNamesComboBox.FormattingEnabled = true;
+            this.assemblyNamesComboBox.Location = new System.Drawing.Point(0, 0);
+            this.assemblyNamesComboBox.Name = "assemblyNamesComboBox";
+            this.assemblyNamesComboBox.Size = new System.Drawing.Size(343, 21);
+            this.assemblyNamesComboBox.TabIndex = 0;
+            this.assemblyNamesComboBox.SelectedIndexChanged += new System.EventHandler(this.assemblyNamesComboBox_SelectedIndexChanged);
             // 
             // AboutDetails
             // 

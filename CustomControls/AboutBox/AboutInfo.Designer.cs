@@ -222,7 +222,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelVersion;
@@ -233,5 +232,6 @@
         internal System.Windows.Forms.Panel infoPanel;
         internal System.Windows.Forms.Button moreInfoButton;
         internal System.Windows.Forms.TextBox textBoxDescription;
+        internal System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
     }
 }
